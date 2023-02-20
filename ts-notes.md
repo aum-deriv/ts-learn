@@ -1,5 +1,5 @@
 # <img width=30 src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Typescript_logo_2020.svg/1200px-Typescript_logo_2020.svg.png" /> Notes
-~ Written by referring to <a href="https://www.linkedin.com/learning/learning-typescript-2?u=215525050">Learning TypeScript</a> by Jess Chadwick from LinkedIn Learning.
+- Written by referring to <a href="https://www.linkedin.com/learning/learning-typescript-2?u=215525050">Learning TypeScript by Jess Chadwick </a> from LinkedIn Learning.
 
 ### Basic Types in JavaScript
 - Boolean
@@ -40,6 +40,22 @@ To make reusable multiple types, one can use the `type` keyword like this:
 type idType = string | number;
 let myID: idType;
 ```
+
+### TypeScript configuration using ts-config.json
+- Done for configuring the TS linter and TS compiler for usage.
+- To be created in the root dir of the project.
+```json
+{
+    "compilerOptions" : {
+        "target": "es5",    // Version of JS to be compiled to.
+        "outDir" : "dist",  // Compiled file directory.
+        "allowJs": true,    // Inspect JS files in the project. Allowing compatibility with JS.
+        "checkJs": true     // Check JS files for error.
+    }
+}
+```
+
+`Note : Ideally, we convert all JS files to TS files but we can interchangeablly use both of them.`
 
 ### Custom Types
 #### Method 1: Returning Objects
