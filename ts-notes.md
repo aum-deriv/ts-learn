@@ -31,7 +31,7 @@ This is achieved by using `any` type.
 `Notes: One should always try to avoid 'any' type for maintaining type-safety.`
 
 ### Multiple Types
-One can assign multiple types to a variable using pipe `|` symbol without using `any` type like this:
+One can assign multiple types to a variable using pipe `|` (union) symbol without using `any` type like this:
 ```ts
 let personID: string | number;
 ```
@@ -190,4 +190,41 @@ Values can be restricted by using two methods:
             personProfession: "student" | "employee";
             aboutPerson?: (about: string) => string;
         };
+```
+
+### Classes in TS
+---
+Unlike JS, we can add access modifiers to class member variables using the following modifiers (like C++):
+- _`private`_: Visible only within the class.
+- _`protected`_: Visible to members on the same class an dthe derived class.
+- _`public`_ (default) : Visible to complete program.
+
+### Generic Types
+---
+Used for creating functions, classes and type aliases for which we do not require to explicitly define types (similar to templates in C++). This is achieved putting a generic type inside angle-brackets.
+> Example 1
+```ts
+function clone<T>(source: T) {
+    const serialized = JSON.stringify(source);
+    return JSON.parse(serialized);
+}
+```
+
+_Explanation_: The above function has a generic type `T` for the parameter `sources` introduced to it  
+
+<br>
+
+> Example 2
+```ts
+interface data {
+    data1: string;
+    data2: number;
+};
+
+function clone<T, U>(source: T, options: U): T {
+    const serialized = JSON.stringify(source);
+    return JSON.parse(serialized);
+}
+
+const cloned = clone()
 ```
